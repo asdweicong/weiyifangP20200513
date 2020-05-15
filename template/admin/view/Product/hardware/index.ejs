@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>综合日报</title>
+</head>
+<link rel="stylesheet" href="/componentes/layui/css/layui.css" media="all">
+<link rel="stylesheet" href="/componentes/stylesheets/style.css" media="all">
+<body>
+<div class="content">
+    <div class="query">
+        <div class="layui-lin-hight">
+            <span><i class="layui-icon layui-icon-util" style="font-size: 20px; color: #666;"></i></span>
+            操作
+        </div>
+        <hr style="margin-top:0">
+        <div style="margin-top: 10px">
+            <div class="layui-row layui-form">
+                <form id="fromData">
+                    <div class="layui-inputFloat">
+                        <label class="layui-form-label">名称</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="name" placeholder="请输入名称" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inputFloat">
+                        <label class="layui-form-label">是否新品</label>
+                        <div class="layui-input-inline">
+                            <select name="isNew" lay-verify="required" class="layui-input" style="z-index: 10000">
+                                <option value=""></option>
+                                <option value="1">是</option>
+                                <option value="0">否</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-inputFloat">
+                        <label class="layui-form-label">是否精选</label>
+                        <div class="layui-input-inline">
+                            <select name="isSelect" lay-verify="required" class="layui-input" style="z-index: 10000">
+                                <option value=""></option>
+                                <option value="1">是</option>
+                                <option value="0">否</option>
+                            </select>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="layui-inputFloat">
+                        <label class="layui-form-label">产品类型</label>
+                        <div class="layui-input-inline">
+                            <select name="type" lay-verify="required" class="layui-input" style="z-index: 10000">
+                                <option value=""></option>
+                                <option value="花洒">花洒</option>
+                                <option value="龙头">龙头</option>
+                                <option value="小五金">小五金</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <hr style="margin-top: 0">
+            <div class="layui-buttom-right">
+                <button class="layui-btn layui-btn-sm layui-btn-danger" data-type="clean"><i class="layui-icon">&#xe640;</i>清空</button>
+                <button class="layui-btn layui-btn-sm layui-btn-warm" data-type="reload"><i class="layui-icon">&#xe615;</i>搜索</button>
+                <button class="layui-btn layui-btn-sm layui-btn-normal" data-type="setTop" ><i class="layui-icon">&#xe654;</i>新增</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="tableContent">
+        <table class="layui-hide" id="ServerInfo" lay-filter="ServerInfo"></table>
+    </div>
+</div>
+</body>
+<script src="/componentes/layui/layui.js"></script>
+<script src="/componentes/javascripts/jquery.min.js"></script>
+<script src="/componentes/javascripts/matrix.js"></script>
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-table-title1">
+        <div><i class="layui-icon" style="margin-right:5px;">&#xe63c;</i>五金系列</div>
+    </div>
+</script>
+<script type="textml" id="xuhao">
+        {{d.LAY_TABLE_INDEX+1}}
+</script>
+<script type="text/html" id="isNew">
+    <input type="checkbox" lay-skin="switch" value="{{d.id}}" lay-filter="sexCheckbox" name="isNew" disabled  lay-text="是|否" {{d.isNew=='1'?"checked":""}}>
+</script>
+<script type="text/html" id="isSelect">
+    <input type="checkbox" lay-skin="switch" value="{{d.id}}" lay-filter="sexCheckbox" name="isSelect" disabled lay-text="是|否" {{d.isSelect=='1'?"checked":""}}>
+</script>
+<script type="text/html" id="coverSrc">
+    <img style='width:40px;height:40px' src="{{d.coverSrc}}" alt="">
+</script>
+<script type="text/html" id="productSrc">
+    <img style='width:40px;height:40px' src="{{d.productSrc}}" alt="">
+</script>
+<script type="text/html" id="toolModule">
+    <button class="layui-btn layui-btn-sm layui-btn-normal" lay-event="edit" title="编辑"><i class="layui-icon">&#xe642;</i></button>
+    <button class="layui-btn layui-btn-sm layui-btn-danger" lay-event="del" title="删除"><i class="layui-icon">&#xe640;</i></button>
+</script>
+<script>
+    layui.use(['table', 'form','laydate'], function(){
+        var table = layui.table, form = layui.form;
+        var laydate = layui.laydate;
+        var tableIns=  table.render({
+            elem: '#ServerInfo',
+            url: 'hardwareList',
+            toolbar: '#toolbarDemo',
+            title: '服务列表',
+            page: true,
+            cellMinWidth: 80,
+            limits: [10, 20, 50, 100],
+            height: setHeight('full-285'),
+            id:'ServerInfo',
+            cols: [[
+                { title: '序号', templet: '#xuhao', sort: true },
+                { field: 'name', title: '名称',  style: 'cursor: pointer;' },
+                { field: 'coverSrc', title: '封面图',  style: 'cursor: pointer;',toolbar: '#coverSrc', },
+                { field: 'productSrc', title: '产品图',  style: 'cursor: pointer;',toolbar: '#productSrc' ,hide:true},
+                { field: 'series', title: '产品系列',  style: 'cursor: pointer;' },
+                { field: 'type', title: '产品分类',  style: 'cursor: pointer;' },
+                { field: 'color', title: '产品颜色',  style: 'cursor: pointer;' ,hide:true},
+                { field: 'size', title: '产品尺寸',  style: 'cursor: pointer;' ,hide:true},
+                { field: 'style', title: '产品风格',  style: 'cursor: pointer;' },
+                { field: 'material', title: '产品材质',  style: 'cursor: pointer;' ,hide:true},
+                { field: 'location', title: '产品定位',  style: 'cursor: pointer;',hide:true },
+                { field: 'sort', title: '排序',  style: 'cursor: pointer;' ,hide:true},
+                { field: 'isNew', title: '是否新品',  style: 'cursor: pointer;' ,toolbar: '#isNew',},
+                { field: 'isSelect', title: '是否精选', style: 'cursor: pointer;' ,toolbar: '#isSelect',},
+                { field: 'introduct', title: '简介',  style: 'cursor: pointer;',hide:true},
+                { fixed: 'right', title: '操作', toolbar: '#toolModule', width: '130' }
+            ]]
+        });
+        //监听行工具事件
+        table.on('tool(ServerInfo)', function(obj){
+            var data = obj.data;
+            if(obj.event==='edit'){
+                location.href = '/admin/view/Product/hardware/edit?id='+data['id'];
+            }else if (obj.event === 'del') {
+                layer.confirm('是否删除当前产品?', function (index) {
+                    obj.del();
+                    DeleteRecord('/admin/view/Product/hardware/delete',data['id'],tableIns)
+                    layer.close(index);
+                });
+            } 
+        });
+        var $ = layui.$, active = {
+            reload: function () {
+                //执行重载
+                table.reload('ServerInfo', {
+                    page: {
+                        curr: 1 //重新从第 1 页开始
+                    },
+                    where: getFormData("fromData")
+                });
+            },
+            setTop: function () {
+                location.href = '/admin/view/Product/hardware/create';
+            },
+            clean: function () {
+                ClearForm();
+            }
+        };
+        $('.layui-buttom-right .layui-btn').on('click', function () {
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+    });
+
+</script>
+</html>

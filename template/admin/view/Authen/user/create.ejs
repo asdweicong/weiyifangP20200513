@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/componentes/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/componentes/stylesheets/style.css" media="all">
+    <script src="/componentes/layui/layui.js"></script>
+    <script src="/componentes/javascripts/jquery.min.js"></script>
+    <script src="/componentes/javascripts/matrix.js"></script>
+    <script src="/componentes/modules/xm-select.js"></script>
+</head>
+<body style="background-color: #f2f2f2;">
+<div class="layui-tab layui-form  layui-tab-brief popContent" >
+    <div class="layui-tab-content popPinding">
+        <!-- Tab panes -->
+        <div class="layui-tab-item layui-show">
+            <div class="layui-form-item">
+                <label class="layui-form-label"><span style="color:red">*</span>用户名</label>
+                <div class="layui-input-block">
+                    <input class="layui-input" type="text" name="userName" value="" placeholder="请输入用户名" lay-verify="required" />
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">姓名</label>
+                <div class="layui-input-block">
+                    <input class="layui-input" type="text" name="fullName" value="" placeholder="请输入姓名" lay-verify="required" />
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"><span style="color:red">*</span>新密码</label>
+                <div class="layui-input-block">
+                    <input class="layui-input" type="password" name="NewLoginPwd" value="" placeholder="请输入新密码" lay-verify="required" />
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"><span style="color:red">*</span>确认密码</label>
+                <div class="layui-input-block">
+                    <input class="layui-input" type="password" name="NewLoginPwdConfirm" value="" placeholder="请输入确认密码" lay-verify="required" />
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">电子邮件</label>
+                <div class="layui-input-block">
+                    <input class="layui-input" type="text" name="email" value="" placeholder="请输入电子邮件" lay-verify="required" />
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">电话号码</label>
+                <div class="layui-input-block">
+                    <input class="layui-input" type="text" name="phone" value="" placeholder="请输入电话号码" lay-verify="required" />
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">是否激活</label>
+                <div class="layui-input-block">
+                    <input type="checkbox" name="enabledText"  lay-skin="switch" lay-text="是|否">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item layui-hide">
+        <input type="button" lay-submit lay-filter="LAY-user-front-submit" id="LAY-user-front-submit" value="确认">
+    </div>
+</div>
+</body>
+
+
+<script type="text/javascript">
+    Init();
+    
+</script>
+</html>

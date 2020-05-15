@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/componentes/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/componentes/stylesheets/style.css" media="all">
+    <script src="/componentes/layui/layui.js"></script>
+    <script src="/componentes/javascripts/jquery.min.js"></script>
+    <script src="/componentes/javascripts/matrix.js"></script>
+    <script src="/componentes/modules/xm-select.js"></script>
+</head>
+<body style="background-color: #f2f2f2;">
+<div class="layui-form" style="margin-top:10px;">
+    <form  class=" popContent" id="formData" style="margin-bottom:55px">
+
+        <div >
+            <div class="layui-lin-hight">
+                <span class="spanStyle"><i class="layui-icon layui-icon-read" style="font-size: 20px; color: #666;"></i></span>
+                <p class="layui-title-text">新增</p>
+            </div>
+            <hr style="margin-top:0" />
+        </div>
+        <div class="layui-tab-item layui-show">
+            <div class="layui-row layui-col-space1">
+                <div class="layui-col-md6">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">排序</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="sort" placeholder="请输入排序" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">名称</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="name" placeholder="请输入名称" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item" style="display: none;">
+                        <label class="layui-form-label">产品系列</label>
+                        <div class="layui-input-block">
+                            <select name="series" disabled lay-verify="required" class="layui-input" style="z-index: 10000">
+                                <option value="浴室系列" >浴室系列</option>
+                                <option value="定制系列" >定制系列</option>
+                                <option value="五金系列" selected>五金系列</option>
+                                <option value="智能系列" >智能系列</option>
+                                <option value="其他系列" >其他系列</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">产品分类</label>
+                        <div class="layui-input-block">
+                            <select name="type" lay-verify="required" class="layui-input" style="z-index: 10000">
+                                <option value=""></option>
+                                <option value="花洒">花洒</option>
+                                <option value="龙头">龙头</option>
+                                <option value="小五金">小五金</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">产品颜色</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="color" placeholder="请输入产品颜色" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">产品尺寸</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="size" placeholder="请输入产品尺寸" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">产品风格</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="style" placeholder="请输入产品风格" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">产品材质</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="material" placeholder="请输入产品材质" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">简介</label>
+                        <div class="layui-input-block">
+                           <textarea class="layui-textarea" placeholder="请输入简介" name="introduct" style="width: 100%;height: 80px;resize: none;"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-md6">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">产品定位</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="location" placeholder="请输入产品定位" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">是否新品</label>
+                        <div class="layui-input-block">
+                            <select name="isNew" lay-verify="required" class="layui-input" style="z-index: 10000">
+                                <option value=""></option>
+                                <option value="1">是</option>
+                                <option value="0">否</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">是否精选</label>
+                        <div class="layui-input-block">
+                            <select name="isSelect" lay-verify="required" class="layui-input" style="z-index: 10000">
+                                <option value=""></option>
+                                <option value="1">是</option>
+                                <option value="0">否</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">封面图</label>
+                        <div class="layui-input-block">   
+                            <button type="button" class="layui-btn layui-btn-sm" id="test1"><i class="layui-icon layui-icon-upload"></i>上传图片</button>
+                            <button type="button" class="layui-btn layui-btn-sm layui-btn-danger delImg" id="delCoverSrc" style="display: none;" data-type="delCoverSrc"><i class="layui-icon">&#xe640;</i>删除图片</button>
+                            <div class="layui-upload-list" id="imgShow" style="display: none;">
+                                <img class="layui-upload-img" id="demo1" style="width: 100px;height: 100px;">
+                                <p id="demoText" style="width: 100px;text-align: center;"></p>
+                                <input type="hidden" name="coverSrc" id="Imgsrc">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">产品图</label>
+                        <div class="layui-input-block">   
+                            <button type="button" class="layui-btn layui-btn-sm" id="test2"><i class="layui-icon layui-icon-upload"></i>上传图片</button>
+                            <button type="button" class="layui-btn layui-btn-sm layui-btn-danger delImg" id="delProductSrc" style="display: none;"  data-type="delProductSrc"><i class="layui-icon">&#xe640;</i>删除图片</button>
+                            <div class="layui-upload-list" id="imgShow2" style="display: none;">
+                                <img class="layui-upload-img" id="demo2" style="width: 100px;height: 100px;">
+                                <p id="demoText2" style="width: 100px;text-align: center;"></p>
+                                <input type="hidden" name="productSrc" id="Imgsrc2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="phone_sumuit">
+        <div class="sumiot-for-pc" style="width: 98%;padding: 10px 0;">
+            <button type="button" class="layui-btn layui-bt-color" onclick="history.back(-1)">返回</button>
+            <button type="button" lay-filter="btnSubmit" lay-submit class="layui-btn layui-btn-normal">保存</button>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    layui.use(['form',], function (){
+        var form = layui.form,
+            $ = layui.$;
+        var active ={
+            delCoverSrc:function(){
+              console.log('删除封面');
+              var field = {name:$('#Imgsrc').val()};
+              layer.confirm('是否从文件源删除该图片?', function (index) {
+                    obj.del();
+                    $.ajax({
+                        type: "POST",
+                        url: '/deleteImg',
+                        data: field,
+                        success: function (data) {
+                            layer.msg(data.message);
+                            if(data.code==200){
+                                $('#imgShow').hide();
+                                $('#delCoverSrc').hide();
+                                $('#Imgsrc').val('');
+                                $('#demoText').html('');
+                            }
+                        }
+                    });
+                    layer.close(index);
+                });
+                
+            },
+            delProductSrc:function(){
+                console.log('删除产品图');
+                var field = $('#Imgsrc2').val();
+                layer.confirm('是否从文件源删除该图片?', function (index) {
+                    obj.del();
+                    $.ajax({
+                    type: "POST",
+                    url: "/deleteImg",
+                    data: {"name":field},
+                    success: function (data) {
+                        layer.msg(data.message);
+                        if(data.code==200){
+                            $('#imgShow2').hide();
+                            $('#delCoverSrc2').hide();
+                            $('#Imgsrc2').val('');
+                            $('#demoText2').html('');
+                        }
+                    }
+                });
+                    layer.close(index);
+                });
+            }
+        };
+        $('.delImg').on('click', function () {
+                var type = $(this).data('type');
+                active[type] ? active[type].call(this) : '';
+            });    
+        form.on('submit(btnSubmit)', function (data) {
+            //表单数据formData
+            var field = data.field;
+            console.log(field)
+            $.ajax({
+               type: "POST",
+               url: '/admin/view/Product/hardware/create',
+               data: field,
+               success: function (data) {
+                   layer.msg(data.message);
+                   if (data.resultType == 0) {
+                       history.back(-1);
+                   }
+               }
+           });
+        });
+   });
+</script>
+
+<script type="text/javascript">
+    Init();
+    layui.use('upload', function(){
+         var upload = layui.upload,$ = layui.$;
+    
+        var uploadInst = upload.render({
+            elem: '#test1'
+            ,accept:'images'
+            ,url: '/upload' //改成您自己的上传接口
+            ,before: function(obj){
+            //预读本地文件示例，不支持ie8
+            obj.preview(function(index, file, result){
+                $('#demo1').attr('src', result); //图片链接（base64）
+            });
+            }
+            ,done: function(res){
+            //如果上传失败
+            if(res.code < 0){
+                return layer.msg('上传失败');
+            }else{
+               $('#imgShow').show();
+               $('#delCoverSrc').show();
+               $('#Imgsrc').val(res.src);
+               $('#demoText').html('<span style="color:red">上传成功</span>');
+            }
+            //上传成功
+            }
+            ,error: function(){
+            //演示失败状态，并实现重传
+            var demoText = $('#demoText');
+            demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+            demoText.find('.demo-reload').on('click', function(){
+                uploadInst.upload();
+            });
+            }
+        });
+
+
+        var uploadInst2 = upload.render({
+            elem: '#test2'
+            ,accept:'images'
+            ,url: '/upload' //改成您自己的上传接口
+            ,before: function(obj){
+            //预读本地文件示例，不支持ie8
+            obj.preview(function(index, file, result){
+                $('#demo2').attr('src', result); //图片链接（base64）
+            });
+            }
+            ,done: function(res){
+            //如果上传失败
+            if(res.code < 0){
+                return layer.msg('上传失败');
+            }else{
+               $('#imgShow2').show();
+               $('#delProductSrc').show();
+               $('#Imgsrc2').val(res.src);
+               $('#demoText').html('<span style="color:red">上传成功</span>');
+            }
+            //上传成功
+            }
+            ,error: function(){
+            //演示失败状态，并实现重传
+            var demoText = $('#demoText2');
+            demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload2">重试</a>');
+            demoText.find('.demo-reload2').on('click', function(){
+                uploadInst.upload();
+            });
+            }
+        });
+
+    });
+</script>
+</html>

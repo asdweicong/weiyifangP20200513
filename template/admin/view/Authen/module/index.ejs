@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>综合日报</title>
+</head>
+<link rel="stylesheet" href="/componentes/layui/css/layui.css" media="all">
+<link rel="stylesheet" href="/componentes/stylesheets/style.css" media="all">
+<body>
+<div class="content">
+    <div class="query">
+        <div class="layui-lin-hight">
+            <span><i class="layui-icon layui-icon-util" style="font-size: 20px; color: #666;"></i></span>
+            操作
+        </div>
+        <hr style="margin-top:0">
+        <div style="margin-top: 10px">
+            <div class="layui-row layui-form">
+                <form id="fromData">
+                    <div class="layui-inputFloat">
+                        <label class="layui-form-label">模块名称</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="name" placeholder="请输入模块名称" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inputFloat">
+                        <label class="layui-form-label">父级模块</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="parentName" placeholder="请输入父级模块" class="layui-input" >
+                        </div>
+                    </div>
+                    <div class="layui-inputFloat">
+                        <label class="layui-form-label">是否激活</label>
+                        <div class="layui-input-inline">
+                            <select name="Isenabled" lay-verify="required" class="layui-input" style="z-index: 10000">
+                                <option value=""></option>
+                                <option value="1">是</option>
+                                <option value="0">否</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <hr style="margin-top: 0">
+            <div class="layui-buttom-right">
+                <button class="layui-btn layui-btn-sm layui-btn-danger" data-type="clean"><i class="layui-icon">&#xe640;</i>清空</button>
+                <button class="layui-btn layui-btn-sm layui-btn-warm" data-type="reload"><i class="layui-icon">&#xe615;</i>搜索</button>
+                <button class="layui-btn layui-btn-sm layui-btn-normal" data-type="setTop"><i class="layui-icon">&#xe654;</i>新增</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="tableContent">
+        <table class="layui-hide" id="ServerInfo" lay-filter="ServerInfo"></table>
+    </div>
+</div>
+</body>
+<script src="/componentes/layui/layui.js"></script>
+<script src="/componentes/javascripts/jquery.min.js"></script>
+<script src="/componentes/javascripts/matrix.js"></script>
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-table-title1">
+        <div><i class="layui-icon" style="margin-right:5px;">&#xe63c;</i>模块管理</div>
+    </div>
+</script>
+<script type="textml" id="xuhao">
+        {{d.LAY_TABLE_INDEX+1}}
+</script>
+<script type="text/html" id="IsEnabled">
+    <input type="checkbox" lay-skin="switch" disabled value="{{d.id}}" lay-filter="Isenabled" name="Isenabled" lay-text="是|否" {{d.Isenabled=='1'?"checked":""}}>
+</script>
+<script type="text/html" id="IsMenu">
+    <input type="checkbox" lay-skin="switch" disabled value="{{d.id}}" lay-filter="IsMenu" name="IsMenu" lay-text="是|否" {{d.IsMenu=='1'?"checked":""}}>
+</script>
+<script type="text/html" id="toolModule">
+    <button class="layui-btn layui-btn-sm layui-btn-normal" lay-event="edit" title="编辑"><i class="layui-icon">&#xe642;</i></button>
+    <button class="layui-btn layui-btn-sm layui-btn-danger" lay-event="del" title="删除"><i class="layui-icon">&#xe640;</i></button>
+</script>
+<script>
+    layui.use(['table', 'form','laydate'], function(){
+        var table = layui.table, form = layui.form;
+        var laydate = layui.laydate;
+        var tableIns=  table.render({
+            elem: '#ServerInfo',
+            url: 'moduleList',
+            toolbar: '#toolbarDemo',
+            title: '服务列表',
+            page: true,
+            cellMinWidth: 80,
+            limits: [10, 20, 50, 100],
+            height: setHeight('full-225'),
+            id:'ServerInfo',
+            cols: [[
+                { title: '序号', templet: '#xuhao', sort: true },
+                { field: 'name', title: '模块名称', style: 'cursor: pointer;' },
+                { field: 'code', title: '模块编码',  style: 'cursor: pointer;' },
+                { field: 'parentId', title: '父级ID', style: 'cursor: pointer;' },
+                { field: 'icon', title: '菜单图标', style: 'cursor: pointer;' },
+                { field: 'parentName', title: '父级模块', style: 'cursor: pointer;' },
+                { field: 'linkUrl', title: '链接地址' , style: 'cursor: pointer;' },
+                { field: 'orderSort', title: '排序', sort: true, style: 'cursor: pointer;' },
+                { field: 'Isenabled', title: '是否激活', toolbar: '#IsEnabled', style: 'cursor: pointer;' },
+                { field: 'IsMenu', title: '是否菜单', toolbar: '#IsMenu', style: 'cursor: pointer;' },
+                { fixed: 'right', title: '操作', toolbar: '#toolModule', width: '130' }
+            ]]
+        });
+        //监听行工具事件
+        table.on('tool(ServerInfo)', function(obj){
+            var data = obj.data;
+            if (obj.event === 'del') {
+                if(data.parentId==''){
+                    layer.msg('子级模块存在，禁止删除');
+                }else{
+                    layer.confirm('是否删除当前模块?', function (index) {
+                        obj.del();
+                        DeleteRecord('/admin/view/Authen/module/delete',data['id'],tableIns)
+                        layer.close(index);
+                    });
+                }
+            } else if (obj.event === 'edit') {
+                setfromModom('编辑', 'AuthenEdit', './edit?id=' + data["id"], function (index, layero) {
+                    SaveModal(index, layero, '/admin/view/Authen/module/edit', tableIns);
+                });
+            }
+        });
+        var $ = layui.$, active = {
+            reload: function () {
+                //执行重载
+                table.reload('ServerInfo', {
+                    page: {
+                        curr: 1 //重新从第 1 页开始
+                    },
+                    where: getFormData("fromData")
+                });
+            },
+            setTop: function () {
+                setfromModom('新增', 'setTop', './create', function (index, layero) {
+                    SaveModal(index, layero, '/admin/view/Authen/module/create', tableIns);
+                });
+            },
+            clean: function () {
+                ClearForm();
+            }
+        };
+        $('.layui-buttom-right .layui-btn').on('click', function () {
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+    });
+
+</script>
+</html>

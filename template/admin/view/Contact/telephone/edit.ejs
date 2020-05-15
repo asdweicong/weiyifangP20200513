@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/componentes/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/componentes/stylesheets/style.css" media="all">
+    <script src="/componentes/layui/layui.js"></script>
+    <script src="/componentes/javascripts/jquery.min.js"></script>
+    <script src="/componentes/javascripts/matrix.js"></script>
+    <script src="/componentes/modules/xm-select.js"></script>
+</head>
+<body style="background-color: #f2f2f2;">
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-card-body" style="padding: 15px 0;">
+            <div class="layui-form">
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><span style="color:red">*</span>手机号</label>
+                    <div class="layui-input-block">
+                        <input name="id" type="hidden" value="<%=mod_data.id%>">
+                        <input type="text" class="layui-input" lay-verify="FrequencyVerify" id="phone" value="<%=mod_data.phone%>" name="phone" placeholder="请输入手机号">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><span style="color:red">*</span>座机</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" lay-verify="FrequencyVerify" id="landline" value="<%=mod_data.landline%>" name="landline" placeholder="请输入座机号">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><span style="color:red">*</span>QQ</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" lay-verify="FrequencyVerify" id="QQ" value="<%=mod_data.QQ%>" name="QQ" placeholder="请输入QQ">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><span style="color:red">*</span>微信号</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" lay-verify="FrequencyVerify" id="weChat" value="<%=mod_data.weChat%>" name="weChat" placeholder="请输入微信号">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><span style="color:red">*</span>公众号</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" lay-verify="FrequencyVerify" id="account" value="<%=mod_data.account%>" name="account" placeholder="请输入公众号">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><span style="color:red">*</span>地址</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" lay-verify="FrequencyVerify" id="address" value="<%=mod_data.address%>" name="address" placeholder="请输入地址">
+                    </div>
+                </div>
+                
+                <div class="layui-form-item layui-hide">
+                    <input type="button" lay-submit lay-filter="LAY-user-front-submit" id="LAY-user-front-submit" value="确认">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+
+<script type="text/javascript">
+    Init();
+</script>
+</html>

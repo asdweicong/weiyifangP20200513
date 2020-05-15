@@ -1,0 +1,897 @@
+.content{
+    margin:15px;
+    background:#ffffff;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.05)
+}
+.popContent {
+    width: 98%;
+    margin: 2% auto 2% auto;
+    background: #ffffff
+}
+.popPinding{
+  width: 100%;
+  padding:10px 0;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.05)
+}
+.tableContent{
+    padding:5px 15px;
+}
+.layui-table-title{
+    height:43px;
+    line-height:43px;
+    border-bottom:1px solid #e6e6e6;
+    padding-left:8px;
+    color:#666;
+}
+.layui-layer-title{
+    height:50px !important;
+    line-height:50px !important;
+    background-color:#ffffff !important;
+}
+
+.layui-layer-btn {
+    padding: 3px 15px 5px 0 !important;
+    border-top: 1px solid #f2f2f2;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+   .layui-layer-iframe{
+        width: 96% !important;
+        height: 400px !important;
+        top: 60px !important;
+    }
+    .my-style-right {
+        padding-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .my-style-left {
+        padding-left: 0;
+        margin-bottom: 10px;
+    }
+    .phone-style .layui-form-item{
+        width:95% !important;
+    }
+
+}
+
+@media screen and (min-width: 992px) {
+    .my-style-right {
+        padding-right: 7px;
+        margin-bottom: 10px;
+    }
+
+    .my-style-left {
+        padding-left: 7px;
+        margin-bottom: 10px;
+    }
+    .table-phone-hight {
+        height: 452px;
+    }
+}
+.layui-layer-setwin {
+    top: 20px !important;
+}
+.layui-lin-hight{
+    line-height:35px;
+    z-index:200;
+}
+.layui-buttom-right{
+    text-align: right;
+    margin-right: 20px;
+}
+.layui-lin-hight .spanStyle {
+    height: 100%;
+    width: 35px;
+    text-align: center;
+    display: inline-block;
+    border-right: 1px solid #ccc;
+    margin-right: 5px;
+}
+.layui-border{
+    border:1px solid #ccc;
+}
+.layui-form-switch{
+    margin-top:5px;
+}
+.query{
+    width: 100%;
+    background-color:#ffffff;
+    padding-bottom: 10px;
+    border: 1px solid #e6e6e6;
+}
+.layui-form-select dl{
+    padding:0 !important;
+}
+.LIneHeigth{
+  line-height:30px;
+  line-height:30px;
+}
+.queryBottom{
+    margin-top: 10px;
+}
+.layui-btn-container .layui-btn{
+    margin: 0;
+}
+.buttonColor{
+    background-color: transparent;
+    color: #666;
+    padding:0;
+}
+.my-style-input-width .layui-form-label {
+    width: 90px;
+    padding: 9px 10px;
+}
+.my-style-input .layui-input {
+    padding-right: 30px;
+    /*height:30px;
+    width:175px;*/
+}
+.my-style-text {
+    line-height: 36px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.my-style-float {
+    width: 49.5%;
+    float: left;
+    padding:5px 0;
+    border-bottom: 1px solid #e6e6e6;
+}
+.layui-cheakbox {
+    width: 20px;
+    height: 20px;
+    line-height: 30px;
+    display: inline-block;
+    margin-top: 6px;
+}
+.layui-table-tool{
+    background-color:transparent;
+}
+.layui-form-label {
+    padding: 6px 12px 10px 5px!important;
+}
+.layui-input, .layui-select{
+    height:33px !important;
+    line-height:33px !important;
+}
+.buttonColor:hover {
+    color: #666;
+}
+.layui-inputFloat{
+    float:left;
+    margin-bottom:10px;
+}
+.layui-clearFloat{
+    overflow:hidden;
+    clear:both;
+}
+
+.label-margin-bottom{
+    display: block;
+    padding: 9px 15px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: right;
+}
+.lab-width{
+    width:182px !important;
+}
+.marginBottomNone{
+    margin-bottom:0 !important;
+}
+.marginRights {
+    padding-right: 10px;
+    margin-bottom: 15px;
+}
+@media screen and (min-width: 768px) {
+    .layui-table-fixed {
+        display:none !important;
+    }
+}
+
+.content1 {
+    margin: 15px;
+     background: none; 
+    border-radius: 2px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+}
+
+.groupRight {
+    height: 800px;
+    overflow: auto;
+}
+@media screen and (max-width: 768px) {
+    .groupLeft {
+        height: auto;
+    }
+    .groupRight {
+        height: auto;
+        overflow: auto;
+    }
+}
+.editlayuiStyle .layui-col-md6{
+    width:49.5%;
+    margin-right:1%;
+}
+.editlayuiStyles .layui-col-md6 {
+    padding:12px;
+}
+.editlayuiStyles.layui-col-md6:nth-child(2n) {
+    margin-right: 0;
+}
+.marginRightNon{
+    margin-right:0 !important;
+}
+.inputWidth{
+    width:80% !important;
+}
+.baColor {
+    background-color: #fff;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 7px solid #eee;
+    border-bottom: 0;
+    border-top: 0;
+}
+.baColor .layui-input-inline{
+  width:50%;
+}
+.baColor .layui-input-inline .layui-input {
+   line-height:38px;
+}
+.layui-table-title1{
+    color:#666;
+}
+
+.defaultList{
+    padding:10px 10px;
+}
+.btnList {
+    padding: 15px 0 15px 10px;
+}
+.exclusive .layui-table-view.vertical .layui-table {
+    position: relative;
+    width: 100%;
+    margin: 0;
+}
+.exclusive .layui-table-view.vertical .layui-table-body {
+    position: relative;
+    overflow: hidden;
+    margin-right: -1px;
+    margin-bottom: -1px;
+}
+.layui-form-select .layui-input {
+    padding-right: 0 !important;
+}
+.exclusive .layui-table-view.vertical .layui-table tr:hover {
+    background-color: #ffffff;
+}
+.disblack-flex{
+    display:flex;
+}
+.updata-style {
+    flex:1;
+}
+.layui-updata-bottom {
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.chartmain-style {
+    padding: 20px 0;
+}
+.chartmain-hight {
+    width: 100%;
+    height: 432px;
+}
+@media screen and (max-width: 768px) {
+    .closeHr{
+        display:none !important;
+    }
+    .disblack-flex {
+        display: block;
+    }
+    .layui-updata-bottom {
+        width: 100%;
+        display: flex;
+        margin-top:8px;
+        justify-content: flex-start;
+        align-items: baseline;
+    }
+    .marginRights {
+        padding-right: 0px;
+        margin-bottom: 15px;
+    }
+    .chartmain-style {
+        padding:0 0 20px 0;
+    }
+}
+.layui-form-checkbox[lay-skin=primary] span {
+    padding-left: 0;
+    padding-right: 15px;
+    line-height: 18px;
+    background: 0 0;
+    color: #666;
+    width: 71px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.layui-form-item{
+    width:85%;
+}
+
+.layui-table-body {
+    /*火狐-IE去除滚动条*/
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+/*谷歌去取滚动条*/
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+.layui-table-total{
+    height:71px;
+}
+.tab-content {
+    width: 98%;
+    margin: 8px auto 0 auto;
+    display: flex;
+    border-bottom: 1px solid #eee;
+}
+.tab-item-flex{
+    flex:0 0 90px;
+    text-align:center;
+    padding-bottom:5px;
+    cursor:pointer;
+    margin-right:12px;
+   border-bottom :2px solid rgba(0,0,0,0);
+}
+.tab-item-flex.active{
+    border-color:red;
+}
+
+.time-btn .layui-btn + .layui-btn {
+    margin-left: 3px;
+}
+.time-btn .layui-btn-sm {
+    padding:0 20px;
+}
+.layui-table-page .layui-laypage input {
+    height: 26px !important;
+}
+/*禁止下拉框向上展开*/
+.layui-form-selectup dl {
+    top: 42px;
+    bottom: unset;
+}
+.mask-style{
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgba(255,255,255,0.1);
+}
+.checkbox-style .layui-form-checkbox{
+    margin-right:0;
+}
+.checkbox-style .layui-form-checkbox span {
+    width: 120px;
+}
+
+/*优化版移动端样式*/
+
+/*移动端样式*/
+.drop-down-show{
+    display:none
+}
+.mobile-content{
+    display:none;
+}
+.pcTable{
+    display:block;
+}
+.groupLeft {
+    margin: 15px;
+    background: #ffffff;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+    min-height: calc(100vh - 30px);
+}
+.add-btn-hide {
+    display: inline-block;
+}
+.layui-title-text{
+    display:inline-block;
+}
+.pageStyle{
+    display:none
+}
+.drop-back-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+@media screen and (max-width: 768px) {
+    .add-btn-hide {
+        display: none !important;
+    }
+    .phone_sumuit {
+        text-align: right;
+    }
+    .pcTable {
+        display: none;
+    }
+    .addPage{
+        text-align:center;
+    }
+    
+    .phone-btn-style{
+        background-color:transparent;
+        width:50px;
+        border:0;
+        
+    }
+    .drop-down-show{
+        display:block;
+        position:absolute;
+        right:10px;
+        top:2px;
+    }
+    .content {
+        width: 100%;
+        margin: 0 auto;
+        z-index: 1000;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    .query {
+        padding-bottom: 0
+    }
+
+    .layui-lin-hight {
+        position: relative
+    }
+
+    .layui-icon-util {
+        font-size: 20px;
+        color: #666;
+    }
+
+    .searchBody {
+        margin-top: 10px;
+        padding-bottom: 10px
+    }
+    .layui-icon-down {
+        font-size: 20px;
+        color: #666;
+    }
+
+    .search-content {
+        display: none
+    }
+
+    .mobile-content {
+        width: 96%;
+        display:block;
+        margin: 50px auto 50px auto;
+        overflow: hidden;
+    }
+
+    .table-list {
+        width: 100%;
+        min-height:70vh;
+    }
+
+    .table-list-li {
+        background-color: #FFFFFF;
+        border-radius:10px;
+        margin-bottom:15px;
+    }
+    .table-list-li ul{
+        overflow:hidden;
+    }
+    .table-herder {
+        width: 94%;
+        padding: 10px 3%;
+        display: flex;
+        position:relative;
+        background-color: #f7f7f7;
+    }
+    .table-herder-left {
+        flex: 1;
+        text-align: left;
+    }
+    .table-herder-right{
+        flex:1;
+        text-align:right;
+        color:#999
+    }
+    .operation-item{
+        padding:5px 8px 5px 8px;
+        text-align:center;
+        border-bottom:1px solid #f2f2f2;
+    }
+    .operation-item:last-child{
+        border:none;
+    }
+    .operation-item .layui-btn-text {
+        color: #333;
+        border: none;
+        font-size: 15px;
+    }
+    .operation {
+        padding:2px 0;
+        display:none;
+        width: 80px;
+        position: absolute;
+        top: 40px;
+        right: 0;
+        background-color: #f1f1f1;
+        border-radius: 5px;
+        z-index: 200;
+        color:#999;
+    }
+
+    .table-list-items {
+        width: 95%;
+        margin: 0 auto 10px auto;
+        padding: 10px 0 10px 0;
+        box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+    }
+    .table-list-item {
+        display: flex;
+        position: relative;
+        border: none;
+        /*box-shadow: inset 0px -1px 1px -1px #c8c7cc;*/
+        text-align: center;
+        width:50%;
+        float:left;
+        position:relative
+    }
+    .table-list-item::after {
+        content: "";
+        box-sizing: border-box;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border-bottom: 1px solid #c8c7cc;
+        border-right: 1px solid #c8c7cc;
+        opacity:0.15
+    }
+    .table-list-item:last-child {
+        border-bottom: 0;
+    }
+    .table-list-item:nth-last-child(2){
+        border-bottom:0;
+    }
+    .table-list-item:nth-child(2n){
+        border-right:0;
+    }
+    .table-left {
+        flex: 0 0 65px;
+        padding: 10px;
+        color: #999;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        position:relative;
+    }
+    .table-left::after {
+        content: "";
+        box-sizing: border-box;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 1px;
+        height: 100%;
+        transform-origin: 0 0;
+        background-color: #c8c7cc;
+        opacity:0.15;
+    }
+
+
+    .table-list-row-item {
+        display: flex;
+        position: relative;
+        border: none;
+        position: relative
+    }
+
+    .table-list-row-item::after {
+        content: "";
+        box-sizing: border-box;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border-bottom: 1px solid #c8c7cc;
+        border-right: 1px solid #c8c7cc;
+        opacity: 0.15
+    }
+
+    .table-row-left {
+        flex: 0 0 65px;
+        padding: 10px;
+        color: #999;
+        overflow: hidden;
+        text-align:center;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        position: relative;
+    }
+
+    .table-row-left::after {
+        content: "";
+        box-sizing: border-box;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 1px;
+        height: 100%;
+        transform-origin: 0 0;
+        background-color: #c8c7cc;
+        opacity: 0.15;
+    }
+
+
+    .table-right {
+        flex: 1;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        padding: 10px 15px 10px 10px;
+        z-index: 100;
+    }
+
+    .showOrClose {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 7px 10px 7px 15px;
+        border-bottom: 1px solid #e6e6e6;
+    }
+    .close {
+        display: none;
+    }
+    .hideTableShow {
+        display: none;
+    }
+    .showOrClose .open span {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        transform: rotate(90deg);
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+    .showOrClose .close span {
+        width: 20px;
+        height: 20px;
+        padding:2px;
+        display: flex;
+        transform: rotate(90deg);
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+    .showOrClose .layui-icon {
+        font-size:18px;
+        color:#ccc;
+    }
+    .phoneHide {
+        display: none;
+    }
+    .phoneShop.layui-col-md3 {
+        width:100%;
+        position:fixed;
+        top:38px;
+        left:0;
+        display: none;
+        z-index:101;
+    }
+    .groupLeft{
+        background-color:#ffffff;
+        min-height:80px;
+        padding-top:10px;
+        margin:0;
+        padding-bottom:10px;
+    }
+    .pageStyle {
+        position: fixed;
+        bottom: 0;
+        width: 96%;
+        padding: 5px 2%;
+        background: #ffffff;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        z-index: 100;
+        border-top: 1px solid #f2f2f2;
+    }
+    .pages-num{
+        flex:0 0 80px;
+    }
+    .next-prev {
+        flex:1;
+    }
+    .page-limit {
+        flex: 1;
+        display: flex;
+        font-size: 12px;
+        text-align: center;
+        justify-content:center;
+        align-items:center;
+    }
+    .page-limit  input {
+        width: 25px;
+        height: 30px !important;
+        margin: 5px;
+        text-align:center;
+        border:1px solid #c9c9c9;
+        line-height: 25px !important;
+    }
+
+    .page-limit   button {
+        margin-left: 10px;
+        padding: 0 10px;
+    }
+
+    #LAY_app_tabs{
+        display:none;
+    }
+    .layui-layout-admin .layui-body {
+        top: 50px;
+        bottom: 0;
+    }
+    .mobile-back-list {
+        background: #fff;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 101;
+    }
+    .herdr-right{
+        margin-right:15px;
+    }
+}
+
+
+.phone_sumuit {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    padding-right: 25px;
+    background-color: #fff;
+    display: block;
+}
+.sumuit-for-phone {
+    display: none;
+}
+.sumiot-for-pc {
+    display: block;
+}
+.spanStyle .layui-icon-search {
+    display: inline-block;
+}
+
+.spanStyle .layui-icon-set-sm {
+    display: none;
+}
+.phoneShopHide{
+    display:none;
+}
+@media screen and (max-width: 768px) {
+    .clickSeeDetail { /*点击查看详情*/
+        position: absolute;
+        top: 0px;
+        display: none;
+        padding: 0 15px 0 10px;
+        z-index: 100;
+        left: 50%;
+        height: 39px;
+        line-height: 39px;
+        background-color: #fff;
+        box-shadow: 0 1px 6px rgba(0,0,0,.12);
+    }
+    .clickSeeDetail .closeDetail {
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        right: 0px;
+        font-size: 15px;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        color:#ccc;
+    }
+    .sumiot-for-pc {
+        display: none;
+    }
+    .sumuit-for-phone{
+        display:flex;
+    }
+    .sumit_btn_style {
+        width: 50%;
+        margin: 0;
+    }
+    .sumit_btn_style .layui-btn {
+        border: 0 !important;
+        border-radius: 0 !important;
+        height: 40px;
+        line-height: 40px;
+    }
+    .down-show-icon {
+        position: absolute;
+        top: 0px;
+        right: 3px;
+        font-size: 12px;
+        line-height: 39px;
+        display: none;
+    }
+    .time-btn {
+        width: 70%;
+    }
+    .time-btn .layui-btn{
+        margin-bottom:5px
+    }
+    .time-btn .layui-btn:nth-child(4) {
+        margin-left: 0px
+    }
+    .layui-title-text{
+        visibility:hidden;
+    }
+    .spanStyle .layui-icon-search{
+        display:none;
+    }
+    .spanStyle .layui-icon-set-sm {
+        display: inline-block;
+    }
+    .phoneShopHide {
+        text-align: center;
+        padding: 8px 0;
+        display:block;
+    }
+    .phoneShopHide .layui-icon-prev {
+        transform: rotate(90deg);
+        display: inline-block;
+        font-size: 20px;
+        width: 20px;
+        height: 20px;
+        color: #ccc;
+    }
+    #phoneShop{
+        background-color:#fff;
+    }
+    .layui-bt-color {
+        background-color: #eadfdf;
+    }
+    .layadmin-iframe{
+        overflow:scroll;
+    }
+}

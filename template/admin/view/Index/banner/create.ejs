@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/componentes/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/componentes/stylesheets/style.css" media="all">
+    <script src="/componentes/layui/layui.js"></script>
+    <script src="/componentes/javascripts/jquery.min.js"></script>
+    <script src="/componentes/javascripts/matrix.js"></script>
+    <script src="/componentes/modules/xm-select.js"></script>
+</head>
+<body style="background-color: #f2f2f2;">
+<div class="layui-tab layui-form  layui-tab-brief popContent"  id="UserRoleID">
+    <div class="layui-tab-content popPinding">
+        <!-- Tab panes -->
+        <div class="layui-tab-item layui-show">
+            <div class="layui-form-item">
+                <label class="layui-form-label">排序</label>
+                <div class="layui-input-block">
+                    <input type="text" name="sort" placeholder="请输入排序" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">图片类型</label>
+                <div class="layui-input-block">
+                    <select name="type" lay-verify="required" class="layui-input" style="z-index: 10000">
+                        <option value=""></option>
+                        <option value="1">PC端</option>
+                        <option value="2">移动端</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">图片上传</label>
+                <div class="layui-input-block">   
+                    <button type="button" class="layui-btn layui-btn-sm" id="test1"><i class="layui-icon layui-icon-upload"></i>上传图片</button>
+                    <button type="button" class="layui-btn layui-btn-sm layui-btn-danger delImg" id="delCoverSrc" style="display: none;" data-type="delCoverSrc"><i class="layui-icon">&#xe640;</i>删除图片</button>
+                    <div class="layui-upload-list" id="imgShow" style="display: none;">
+                        <img class="layui-upload-img" id="demo1" style="width: 100px;height: 100px;">
+                        <p id="demoText"></p>
+                        <input type="hidden" name="src" id="Imgsrc">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item layui-hide">
+        <input type="button" lay-submit lay-filter="LAY-user-front-submit" id="LAY-user-front-submit" value="确认">
+    </div>
+</div>
+</body>
+<script>
+    layui.use(['form',], function (){
+        var form = layui.form,
+            $ = layui.$;
+        var active ={
+            delCoverSrc:function(){
+              console.log('删除封面');
+              var field = {name:$('#Imgsrc').val()};
+              layer.confirm('是否从文件源删除该图片?', function (index) {
+                obj.del();
+                $.ajax({
+                    type: "POST",
+                    url: '/deleteImg',
+                    data: field,
+                    success: function (data) {
+                        layer.msg(data.message);
+                        if(data.code==200){
+                            $('#imgShow').hide();
+                            $('#delCoverSrc').hide();
+                            $('#Imgsrc').val('');
+                            $('#demoText').html('');
+                        }
+                    }
+                });
+                layer.close(index);
+              });
+            },
+        };
+        $('.delImg').on('click', function () {
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });    
+       
+   });
+</script>
+
+<script type="text/javascript">
+    Init();
+    layui.use('upload', function(){
+       var upload = layui.upload,$ = layui.$;
+       var uploadInst = upload.render({
+            elem: '#test1'
+            ,accept:'images'
+            ,url: '/upload' //改成您自己的上传接口
+            ,before: function(obj){
+            //预读本地文件示例，不支持ie8
+            obj.preview(function(index, file, result){
+                $('#demo1').attr('src', result); //图片链接（base64）
+            });
+            }
+            ,done: function(res){
+            //如果上传失败
+            if(res.code < 0){
+                return layer.msg('上传失败');
+            }else{
+               $('#imgShow').show();
+               $('#delCoverSrc').show();
+               $('#Imgsrc').val(res.src);
+               $('#demoText').html('<span style="color:red">上传成功</span>');
+            }
+            //上传成功
+            }
+            ,error: function(){
+            //演示失败状态，并实现重传
+            var demoText = $('#demoText');
+            demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+            demoText.find('.demo-reload').on('click', function(){
+                uploadInst.upload();
+            });
+            }
+        });
+        
+    });
+</script>
+</html>

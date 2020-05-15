@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/componentes/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/componentes/stylesheets/style.css" media="all">
+    <script src="/componentes/layui/layui.js"></script>
+    <script src="/componentes/javascripts/jquery.min.js"></script>
+    <script src="/componentes/javascripts/matrix.js"></script>
+    <script src="/componentes/modules/xm-select.js"></script>
+</head>
+<body style="background-color: #f2f2f2;">
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-card-body" style="padding: 15px 0;">
+            <div class="layui-form">
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><span style="color:red">*</span>模块名称</label>
+                    <div class="layui-input-block">
+                        <input type="hidden" name="id" value="<%=mod_data.id%>">
+                        <input type="text" class="layui-input" lay-verify="FrequencyVerify" id="name" value="<%=mod_data.name%>" name="name">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><span style="color:red">*</span>模块编号</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" lay-verify="FrequencyVerify" id="code" value="<%=mod_data.code%>" name="code" placeholder="请输入模块编号">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><span style="color:red">*</span>上级模块</label>
+                    <div class="layui-input-block">
+                        <select name="parentId" lay-verify="required" id="parentId" class="layui-input" value='<%=mod_data.parentId%>'>
+                            <% for(var i = 0;i < selcetData.length;i++){ %>
+                    　　　　　　<% if(mod_data.parentId == selcetData[i].val){ %>
+                    　　　　　　　　<option value="<%= selcetData[i].val %>" selected="selected"><%=selcetData[i].key%></option>
+                    　　　　　　<% }else{ %>
+                    　　　　　　　　<option value="<%= selcetData[i].val %>"><%=selcetData[i].key%></option>
+                    　　　　　　<% }} %>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><span style="color:red">*</span>菜单图标</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" lay-verify="FrequencyVerify" id="icon" value="<%=mod_data.icon%>" name="icon" placeholder="请输入菜单图标">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><span style="color:red">*</span>链接地址</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" lay-verify="FrequencyVerify" id="linkUrl" value="<%=mod_data.linkUrl%>" name="linkUrl" placeholder="请输入链接地址">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><span style="color:red">*</span>排序</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" lay-verify="FrequencyVerify" id="orderSort" value="<%=mod_data.orderSort%>" name="orderSort" placeholder="请输入排序">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">是否菜单</label>
+                    <div class="layui-input-block" style="width:182px">
+                        <% if (mod_data.IsMenu==1) { %>
+                            <input type="checkbox" name="IsMenu" value="<%=mod_data.IsMenu%>" lay-skin="switch" lay-text="是|否"  checked/>
+                          <% }else{  %>
+                            <input type="checkbox" name="IsMenu" value="<%=mod_data.IsMenu%>" lay-skin="switch" lay-text="是|否"  />
+                          <% } %>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">是否激活</label>
+                    <div class="layui-input-block" style="width:182px">
+                        <% if (mod_data.Isenabled==1) { %>
+                            <input type="checkbox" name="Isenabled" value="<%=mod_data.Isenabled%>" lay-skin="switch" lay-text="是|否"  checked/>
+                          <% }else{  %>
+                            <input type="checkbox" name="Isenabled" value="<%=mod_data.Isenabled%>" lay-skin="switch" lay-text="是|否"  />
+                          <% } %>
+                    </div>
+                </div>
+                <div class="layui-form-item layui-hide">
+                    <input type="button" lay-submit lay-filter="LAY-user-front-submit" id="LAY-user-front-submit" value="确认">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+
+<script type="text/javascript">
+    Init();
+</script>
+</html>
